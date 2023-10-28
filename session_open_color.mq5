@@ -7,6 +7,8 @@
 #property indicator_type1 DRAW_COLOR_CANDLES
            
 
+input int hour_london   = 10;
+input int hour_new_york = 15;
 
 input color color_london    = clrRed;
 input color color_new_york  = clrBlack;
@@ -54,18 +56,17 @@ int OnCalculate(const int rates_total,
       
       TimeToStruct( time[ i ], time_open );
       
-      switch( time_open.hour )
+      if( time_open.hour == hour_london )
       {
-         case 10 :
-            buf_color_line[ i ] = 1;
-            break;
-            
-         case 15 :
-            buf_color_line[ i ] = 2;
-            break;
-      
-         default :
-            buf_color_line[ i ] = 0;
+         buf_color_line[ i ] = 1;
+      }     
+      else if( time_open.hour == hour_new_york )
+      {
+         buf_color_line[ i ] = 2;
+      }
+      else
+      {
+         buf_color_line[ i ] = 0;
       }  
    }
 
