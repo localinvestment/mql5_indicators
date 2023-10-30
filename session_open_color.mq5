@@ -12,7 +12,7 @@ input int hour_new_york = 15;
 
 input color color_london    = clrRed;
 input color color_new_york  = clrBlack;
-input color color_default   = clrLightSlateGray;
+input color color_default   = clrSilver;
 
 double buf_open[],buf_high[],buf_low[],buf_close[];
 double buf_color_line[];
