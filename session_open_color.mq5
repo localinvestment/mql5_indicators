@@ -6,10 +6,6 @@
 #property indicator_width1  3              
 #property indicator_type1 DRAW_COLOR_CANDLES
            
-
-input int hour_london   = 10;
-input int hour_new_york = 15;
-
 input color color_london    = clrRed;
 input color color_new_york  = clrBlack;
 input color color_default   = clrSilver;
@@ -34,6 +30,32 @@ int OnInit()
    return(0);
 }
 
+int calcLondon(datetime _date)
+{
+   int result = -1;
+   
+   if(_date >= D'2022.03.27 01:00' && _date < D'2022.10.30 02:00') result = 10;
+   if(_date >= D'2022.10.30 02:00' && _date < D'2023.03.26 01:00') result = 11;
+   if(_date >= D'2023.03.26 01:00' && _date < D'2023.10.29 02:00') result = 10;
+   if(_date >= D'2023.10.29 02:00' && _date < D'2024.03.31 01:00') result = 11;
+   if(_date >= D'2024.03.31 01:00' && _date < D'2024.10.27 02:00') result = 10;
+   
+   return result;
+}
+
+int calcNewYork(datetime _date)
+{
+   int result = -1;
+   
+   if(_date >= D'2022.03.13 02:00' && _date < D'2022.11.06 02:00') result = 15;
+   if(_date >= D'2022.11.06 02:00' && _date < D'2023.03.12 02:00') result = 16;
+   if(_date >= D'2023.03.12 02:00' && _date < D'2023.11.05 02:00') result = 15;
+   if(_date >= D'2023.11.05 02:00' && _date < D'2024.03.10 02:00') result = 16;
+   if(_date >= D'2024.03.10 02:00' && _date < D'2024.11.03 02:00') result = 15;
+   
+   return result;
+}
+
 int OnCalculate(const int rates_total,
                 const int prev_calculated,
                 const datetime &time[],
@@ -56,11 +78,11 @@ int OnCalculate(const int rates_total,
       
       TimeToStruct( time[ i ], time_open );
       
-      if( time_open.hour == hour_london )
+      if( time_open.hour == calcLondon( time[ i ] ) )
       {
          buf_color_line[ i ] = 1;
       }     
-      else if( time_open.hour == hour_new_york )
+      else if( time_open.hour == calcNewYork( time[ i ] ) )
       {
          buf_color_line[ i ] = 2;
       }
