@@ -34,11 +34,19 @@ int calcLondon(datetime _date)
 {
    int result = -1;
    
+   if(_date >= D'2020.03.29 01:00' && _date < D'2020.10.25 02:00') result = 10;
+   if(_date >= D'2020.10.25 02:00' && _date < D'2021.03.28 01:00') result = 11;
+   if(_date >= D'2021.03.28 01:00' && _date < D'2021.10.31 02:00') result = 10;
+   if(_date >= D'2021.10.31 02:00' && _date < D'2022.03.27 01:00') result = 11;
    if(_date >= D'2022.03.27 01:00' && _date < D'2022.10.30 02:00') result = 10;
    if(_date >= D'2022.10.30 02:00' && _date < D'2023.03.26 01:00') result = 11;
    if(_date >= D'2023.03.26 01:00' && _date < D'2023.10.29 02:00') result = 10;
    if(_date >= D'2023.10.29 02:00' && _date < D'2024.03.31 01:00') result = 11;
    if(_date >= D'2024.03.31 01:00' && _date < D'2024.10.27 02:00') result = 10;
+   if(_date >= D'2024.10.27 02:00' && _date < D'2025.03.30 01:00') result = 11;
+   if(_date >= D'2025.03.30 01:00' && _date < D'2025.10.26 02:00') result = 10;
+   if(_date >= D'2025.10.26 02:00' && _date < D'2026.03.29 01:00') result = 11;
+   if(_date >= D'2026.03.29 01:00' && _date < D'2026.10.25 02:00') result = 10;
    
    return result;
 }
@@ -47,11 +55,19 @@ int calcNewYork(datetime _date)
 {
    int result = -1;
    
+   if(_date >= D'2020.03.08 02:00' && _date < D'2020.11.01 02:00') result = 15;
+   if(_date >= D'2020.11.01 02:00' && _date < D'2021.03.14 02:00') result = 16;
+   if(_date >= D'2021.03.14 02:00' && _date < D'2021.11.07 02:00') result = 15;
+   if(_date >= D'2021.11.07 02:00' && _date < D'2022.03.13 02:00') result = 16;
    if(_date >= D'2022.03.13 02:00' && _date < D'2022.11.06 02:00') result = 15;
    if(_date >= D'2022.11.06 02:00' && _date < D'2023.03.12 02:00') result = 16;
    if(_date >= D'2023.03.12 02:00' && _date < D'2023.11.05 02:00') result = 15;
    if(_date >= D'2023.11.05 02:00' && _date < D'2024.03.10 02:00') result = 16;
    if(_date >= D'2024.03.10 02:00' && _date < D'2024.11.03 02:00') result = 15;
+   if(_date >= D'2024.11.03 02:00' && _date < D'2025.03.09 02:00') result = 16;
+   if(_date >= D'2025.03.09 02:00' && _date < D'2025.11.02 02:00') result = 15;
+   if(_date >= D'2025.11.02 02:00' && _date < D'2026.03.08 02:00') result = 16;
+   if(_date >= D'2026.03.08 02:00' && _date < D'2026.11.01 02:00') result = 15;
    
    return result;
 }
